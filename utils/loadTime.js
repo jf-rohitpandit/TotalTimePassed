@@ -5,7 +5,6 @@ const time = () => {
   try {
     const dataBuffer = fs.readFileSync("data.json");
     return JSON.parse(dataBuffer.toString());
-    // return timeInHour(parseInt(dataBuffer.toString()));
   } catch (e) {
     return {
       hours: 0,
@@ -13,5 +12,4 @@ const time = () => {
     };
   }
 };
-// console.log(time());
 module.exports = time;
