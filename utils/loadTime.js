@@ -1,24 +1,24 @@
 const fs = require("fs");
 const path = require("path");
 
-const Time = () => {
-  try {
-    fs.readFile("data.txt", (err, data) => {
-      if (err) {
-        console.log({
-          total: 0,
-          time: Date.now(),
-        });
-      } else {
-        console.log({
-          total: parseInt(data.toString()),
-          time: Date.now(),
-        });
-      }
-    });
-  } catch {
-    console.log("Some Error occured while reading data");
-  }
+const timeInHour = (time) => {
+  const hours = parseInt(time / 60);
+  const mins = time % 60;
+
+  return {
+    hours,
+    mins,
+  };
 };
 
-module.exports = Time;
+const time = () => {
+  try {
+    const dataBuffer = fs.readFileSync("data.txt");
+    return timeInHour(parseInt(dataBuffer.toString()));
+  } catch (e) {
+    console.log("Some Error occured while reading data");
+    return e;
+  }
+};
+// console.log(time());
+module.exports = time;
