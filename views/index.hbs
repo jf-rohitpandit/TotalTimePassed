@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Total Time Passed</title>
     <style>
         * {
@@ -12,27 +12,19 @@
 
         body {
             height: 80vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-evenly;
-            overflow: hidden;
             background-color: wheat;
         }
 
         h1 {
-            font-size: 5rem;
-            margin: 0;
-        }
-
-        .style {
-            height: 30%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 2rem;
+            text-align: center;
+            margin: 2rem;
+            font-size: 3rem;
         }
 
         button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             color: white;
             background-color: red;
             border: none;
@@ -42,64 +34,17 @@
             border-radius: 1rem;
             font-weight: 800;
         }
-
-        .time {
-            padding: 0;
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
-        }
     </style>
 </head>
 
 <body>
-    <div class="time">
-        <div class="style">
-            <h1> <span id="hours">0</span> Hour: <span id="mins">0</span> Mins</h1>
-            <h3>Time passed in this Laps</h3>
+    <h1>Total Time Passed</h1>
 
-        </div>
-        <div class="style">
-            <h1><span id="total-hours">{{totalTime.hours}}</span>Hour: <span
-                    id="total-mins">{{totalTime.mins}}</span>Mins</h1>
-            <h3>Total time passed</h3>
-        </div>
-    </div>
-    <div class="time">
-        <form action="/start" method="GET"><button style="background-color: green;">
-                Start Timer
-            </button></form>
-        <form action="/stop" method="GET">
-            <input type="text" value="" style="display: none;">
-            <button>Stop Timer</button>
-        </form>
-    </div>
-
-    <script>
-        let hours = parseInt(document.getElementById('hours').innerText);
-        let mins = parseInt(document.getElementById('mins').innerText);
-        let totalHours = parseInt(document.getElementById('total-hours').innerText);
-        let totalMins = parseInt(document.getElementById('total-mins').innerText);
-        console.log(totalHours)
-        function increseMinunte() {
-
-            mins += 1;
-            totalMins += 1;
-            if (mins > 60) {
-                mins = parseInt(mins % 60);
-                totalMins = parseInt(totalMins % 60);
-                totalHours++;
-                hours++;
-            }
-            document.getElementById('hours').innerText = hours;
-            document.getElementById('mins').innerText = mins;
-            document.getElementById('total-hours').innerText = totalHours;
-            document.getElementById('total-mins').innerText = totalMins;
-            console.log(mins)
-        }
-        setInterval(increseMinunte, 1000);
-    </script>
-
+    <form action="/start" method="GET">
+        <button style="background-color: green;">
+            Start Timer
+        </button>
+    </form>
 </body>
 
 </html>
