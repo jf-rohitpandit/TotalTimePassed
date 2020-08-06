@@ -85,9 +85,11 @@
             totalMins += 1;
             if (mins > 60) {
                 mins = parseInt(mins % 60);
+                hours++;
+            }
+            if (totalMins > 60) {
                 totalMins = parseInt(totalMins % 60);
                 totalHours++;
-                hours++;
             }
             document.getElementById('hours').innerText = hours;
             document.getElementById('mins').innerText = mins;
@@ -97,9 +99,10 @@
             console.log(document.getElementById('mins-value').value)
             document.getElementById('hours-value').value = totalHours;
             document.getElementById('mins-value').value = totalMins;
-            //console.log(mins)
+            console.log(mins)
+            console.log(hours)
         }
-        setInterval(increseMinunte, 1000);
+        setInterval(increseMinunte, 6000);
     </script>
 
 </body>

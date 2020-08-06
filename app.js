@@ -33,7 +33,13 @@ app.get("/start", (req, res) => {
 });
 app.post("/stop", (req, res) => {
   console.log("hello");
-  console.log(req.body);
+  if (req.body.hours === "") {
+    req.body.hours = "0";
+  }
+  if (req.body.mins === "") {
+    req.body.mins = "0";
+  }
+
   saveTime(JSON.stringify(req.body));
   res.redirect("/");
 });
